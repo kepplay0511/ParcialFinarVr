@@ -12,8 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _DETAIL_MULX2
   - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
   - _OCCLUSIONMAP
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords:
@@ -34,7 +34,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 82d79d265f71d1f48af0fc9246a91665, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 82d79d265f71d1f48af0fc9246a91665, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
