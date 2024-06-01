@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class ChangeMaterial : MonoBehaviour
 {
-    public Renderer objectRenderer; // Referencia al Renderer del objeto cuyo material deseas cambiar
-    public Material newMaterial; // El nuevo material que deseas asignar al objeto
+    public Renderer[] objectRenderers; // Lista de Renderers de los objetos cuyo material deseas cambiar
+    public Material newMaterial; // El nuevo material que deseas asignar a los objetos
 
-    public void ChangeObjectMaterial()
+    public void ChangeObjectsMaterial()
     {
-        if (objectRenderer != null && newMaterial != null)
+        if (objectRenderers != null && objectRenderers.Length > 0 && newMaterial != null)
         {
-            // Asigna el nuevo material al objeto
-            objectRenderer.material = newMaterial;
+            // Asigna el nuevo material a cada objeto en la lista
+            foreach (Renderer renderer in objectRenderers)
+            {
+                renderer.material = newMaterial;
+            }
         }
         else
         {
-            Debug.LogWarning("Object renderer or new material is not assigned!");
+            Debug.LogWarning("Object renderers array or new material is not assigned!");
         }
     }
 }
