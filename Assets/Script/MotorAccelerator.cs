@@ -6,10 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MotorAccelerator : MonoBehaviour
 {
     public AudioSource audioSource;
-    public float maxVolume = 1.0f; // Volumen máximo del audio
-    public float rotationFactor = 0.1f; // Factor de rotación para ajustar el volumen
-    public float minRotation = 1.077f; // Mínima rotación permitida en grados
-    public float maxRotation = 60f; // Máxima rotación permitida en grados
+    public float maxVolume = 1.0f; // Volumen mï¿½ximo del audio
+    public float rotationFactor = 0.1f; // Factor de rotaciï¿½n para ajustar el volumen
+    public float minRotation = 1.077f; // Mï¿½nima rotaciï¿½n permitida en grados
+    public float maxRotation = 60f; // Mï¿½xima rotaciï¿½n permitida en grados
     public float loopStartTime = 0.4f; // Tiempo de inicio del bucle en segundos
     public float loopEndTime = 1.3f; // Tiempo de fin del bucle en segundos
 
@@ -26,8 +26,8 @@ public class MotorAccelerator : MonoBehaviour
         initialRotation = transform.rotation;
         initialPosition = transform.position;
         grabInteractable = GetComponent<XRGrabInteractable>();
-        grabInteractable.onSelectEnter.AddListener(OnGrab);
-        grabInteractable.onSelectExit.AddListener(OnRelease);
+        grabInteractable.onSelectEntered.AddListener(OnGrab);
+        grabInteractable.onSelectExited.AddListener(OnRelease);
 
         // Desactiva el componente AudioSource al inicio
         audioSource.Stop();
@@ -58,10 +58,10 @@ public class MotorAccelerator : MonoBehaviour
 
     private void Update()
     {
-        // Limita el ángulo de rotación en el eje Z dentro del rango permitido
+        // Limita el ï¿½ngulo de rotaciï¿½n en el eje Z dentro del rango permitido
         float rotationZ = Mathf.Clamp(transform.rotation.eulerAngles.z, minRotation, maxRotation);
 
-        // Ajustar el volumen del audio según la rotación en el eje Z del rectángulo
+        // Ajustar el volumen del audio segï¿½n la rotaciï¿½n en el eje Z del rectï¿½ngulo
         float volume = Mathf.Clamp01((rotationZ - minRotation) / (maxRotation - minRotation) * rotationFactor);
         audioSource.volume = volume * maxVolume;
 
